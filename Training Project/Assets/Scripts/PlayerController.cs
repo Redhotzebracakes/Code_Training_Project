@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+<<<<<<< Updated upstream
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,11 +18,22 @@ public class PlayerController : MonoBehaviour
         //_rigid_body.velocity = Vector2.right * .5f;
         Invoke(nameof(AcceptDefeat), 12);
 
+=======
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
         if (_input.actions["Fire"].WasPressedThisFrame())
         {
             Debug.Log("Fire activated!");
@@ -41,3 +53,8 @@ public class PlayerController : MonoBehaviour
 
     
 }
+=======
+        
+    }
+}
+>>>>>>> Stashed changes
