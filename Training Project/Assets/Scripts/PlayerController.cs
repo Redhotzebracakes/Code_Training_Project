@@ -1,39 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
-<<<<<<< Updated upstream
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.InputSystem; //Don't miss this!
 
 public class PlayerController : MonoBehaviour
 {
-    private PlayerInput _input;
-    private Rigidbody2D _rigid_body;
+    private PlayerInput _input; //field to reference Player Input component
+    private Rigidbody2D _rigidbody;
+
     // Start is called before the first frame update
     void Start()
     {
+        //set reference to PlayerInput component on this object
+        //Top Action Map, "Player" should be active by default
         _input = GetComponent<PlayerInput>();
-        _rigid_body = GetComponent<Rigidbody2D>();
-        transform.position = new Vector2(3, -2);
-        //_rigid_body.velocity = Vector2.right * .5f;
-        Invoke(nameof(AcceptDefeat), 12);
+        //You can switch Action Maps using _input.SwitchCurrentActionMap("UI");
 
-=======
-using UnityEngine;
+        //set reference to Rigidbody2D component on this object
+        _rigidbody = GetComponent<Rigidbody2D>();
 
-public class PlayerController : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+        //transform.position = new Vector2(3, -1);
+        //Invoke(nameof(AcceptDefeat), 10);
+    }
+
+    void AcceptDefeat()
     {
-        
->>>>>>> Stashed changes
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream
+        //if Fire action was performed log it to the console
         if (_input.actions["Fire"].WasPressedThisFrame())
         {
             Debug.Log("Fire activated!");
@@ -42,19 +38,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //set direction to the Move action's Vector2 value
         var dir = _input.actions["Move"].ReadValue<Vector2>();
-        _rigid_body.velocity = dir * 5;
-    }
 
-    void AcceptDefeat()
-    {
-        Destroy(gameObject);
-    }
-
-    
-}
-=======
-        
+        //change the velocity to match the Move (every physics update)
+        _rigidbody.velocity = dir * 5;
     }
 }
->>>>>>> Stashed changes
