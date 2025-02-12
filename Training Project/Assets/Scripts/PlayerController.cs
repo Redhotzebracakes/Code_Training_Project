@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("Fire activated!");
             var ball = Instantiate(ballPrefab, transform.position, Quaternion.identity);
-            ball.GetComponent<Rigidbody2D>().velocity =_facingVector.normalized * 10f;
+            ball.GetComponent<BallController>()?.SetDirection(_facingVector);
         }
     }
 
