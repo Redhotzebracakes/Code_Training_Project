@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
 
 
-        Invoke(nameof(AcceptDefeat), 10);
+        //Invoke(nameof(AcceptDefeat), 10);
     }
 
     void AcceptDefeat()
