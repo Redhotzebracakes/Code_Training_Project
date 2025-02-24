@@ -28,7 +28,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (_input.actions["Pause"].WasPressedThisFrame())
+        {
+            GameManager.Instance.TogglePause();
+        }
+        if (GameManager.Instance.State != GameState.Playing) return;
         if (_input.actions["Fire"].WasPressedThisFrame())
         {
             //Debug.Log("Fire activated!");
@@ -41,12 +45,13 @@ public class PlayerController : MonoBehaviour
     {
 
         var dir = _input.actions["Move"].ReadValue<Vector2>();
-
+        if (GameManager.Instance.State != GameState.Playing) return;
         //change the velocity to match the Move (every physics update)
         _rigidbody.velocity = dir * 5;
         if (dir.magnitude > 0.5)
         {
             _facingVector = _rigidbody.velocity;
         }
+        
     }
 }
