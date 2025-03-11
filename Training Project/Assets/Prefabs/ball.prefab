@@ -162,4 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 15
+  damage: 5
+  tagToDamage: Enemy
   _lifeTime: 3
